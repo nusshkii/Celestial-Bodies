@@ -48,7 +48,7 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.astronomical_object (
-    object_id integer NOT NULL,
+    astronomical_object_id integer NOT NULL,
     name character varying(255) NOT NULL,
     type character varying(50),
     description text,
@@ -77,7 +77,7 @@ ALTER TABLE public.astronomical_object_object_id_seq OWNER TO freecodecamp;
 -- Name: astronomical_object_object_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.astronomical_object_object_id_seq OWNED BY public.astronomical_object.object_id;
+ALTER SEQUENCE public.astronomical_object_object_id_seq OWNED BY public.astronomical_object.astronomical_object_id;
 
 
 --
@@ -233,10 +233,10 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 
 
 --
--- Name: astronomical_object object_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: astronomical_object astronomical_object_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.astronomical_object ALTER COLUMN object_id SET DEFAULT nextval('public.astronomical_object_object_id_seq'::regclass);
+ALTER TABLE ONLY public.astronomical_object ALTER COLUMN astronomical_object_id SET DEFAULT nextval('public.astronomical_object_object_id_seq'::regclass);
 
 
 --
@@ -392,7 +392,7 @@ ALTER TABLE ONLY public.astronomical_object
 --
 
 ALTER TABLE ONLY public.astronomical_object
-    ADD CONSTRAINT astronomical_object_pkey PRIMARY KEY (object_id);
+    ADD CONSTRAINT astronomical_object_pkey PRIMARY KEY (astronomical_object_id);
 
 
 --
